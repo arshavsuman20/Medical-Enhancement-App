@@ -8,7 +8,11 @@ st.title("Medical Image Enhancement")
 
 @st.cache_resource
 def load_my_model():
-    return load_model("models/unet.h5", compile=False)
+    return tf.keras.models.load_model(
+        "models/unet.h5",
+        compile=False,
+        custom_objects=None
+    )
 
 model = load_my_model()
 
