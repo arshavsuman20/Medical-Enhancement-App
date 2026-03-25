@@ -3,7 +3,7 @@ import numpy as np
 import cv2
 from PIL import Image
 from tensorflow.keras.models import load_model
-
+import tensorflow as tf
 st.title("Medical Image Enhancement")
 
 @st.cache_resource
