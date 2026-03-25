@@ -1,4 +1,7 @@
+from xml.parsers.expat import model
+
 import streamlit as st
+import tensorflow as tf
 import numpy as np
 import cv2
 from PIL import Image
@@ -9,16 +12,10 @@ st.title("Medical Image Enhancement")
 
 @st.cache_resource
 def load_my_model():
-    return tf.keras.models.load_model(
-        "models/unet.h5",
-        compile=False,
-        safe_mode=False
-    )
+    model = tf.keras.models.load_model("models/final_model")
+    return model
 
 model = load_my_model()
-
-model = load_my_model()
-
 def process_image(image, model):
     image_np = np.array(image)
     h, w = image_np.shape[:2]
