@@ -4,6 +4,7 @@ import cv2
 from PIL import Image
 from tensorflow.keras.models import load_model
 import tensorflow as tf
+import streamlit as st
 st.title("Medical Image Enhancement")
 
 @st.cache_resource
@@ -11,8 +12,10 @@ def load_my_model():
     return tf.keras.models.load_model(
         "models/unet.h5",
         compile=False,
-        custom_objects=None
+        safe_mode=False
     )
+
+model = load_my_model()
 
 model = load_my_model()
 
