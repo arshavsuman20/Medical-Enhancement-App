@@ -1,36 +1,106 @@
-# GAN for Medical Image Enhancement
+# Medical Image Enhancement using GAN
 
-A Generative Adversarial Network (GAN) designed to enhance noisy medical images.
-This project improves image quality and reduces noise for downstream tasks.
+A deep learning-based web application that enhances noisy medical images using a Generative Adversarial Network (GAN). The app allows users to upload an image and get an improved version in real time.
 
-## Problem
-Medical imaging often suffers from noise. This model uses GANs to denoise and enhance image quality.
+---
+
+## Live Demo
+
+https://medical-enhancement-app-vadvkn9rrneucqypm2azwm.streamlit.app/
+
+---
+
+## Features
+
+* Upload medical images (PNG, JPG, JPEG)
+* GAN-based image enhancement
+* Real-time inference using trained model
+* Side-by-side comparison (Original vs Enhanced)
+* Download enhanced image
+
+---
+
+## Model Details
+
+* Architecture: GAN / U-Net based generator
+* Input size: 128 × 128 images
+* Preprocessing:
+
+  * Resize
+  * Normalization (0–1)
+  * Channel adjustment (RGB)
+* Output: Enhanced image with reduced noise
+
+---
 
 ## Tech Stack
-- Python
-- TensorFlow
-- NumPy
-- Matplotlib
 
-## Files
-- `train.py` — train the model
-- `evaluate.py` — evaluate on test data
-- `utils.py` — helper functions
-- `/data` — sample input & output images
+* Python
+* TensorFlow / Keras
+* NumPy
+* OpenCV
+* Streamlit
 
-## Results
-Noise reduction improved by **42%** on test samples.
+---
 
-## 🚀 How to Run
+## How to Run Locally
+
 ```bash
-git clone https://github.com/arshavsuman20/GAN
-cd GAN
+git clone https://github.com/arshavsuman20/Medical-Enhancement-App.git
+cd Medical-Enhancement-App
 pip install -r requirements.txt
-python train.py
-python evaluate.py
+streamlit run app.py
+```
 
-## 💡 Learnings
-- Understood stability issues in GAN training and addressed them using
-  better loss functions and data normalization.
-- Improved inference speed by optimizing preprocessing and batch handling.
-- Learned how to structure ML code for real-world deployment.
+---
+
+## Project Structure
+
+```
+Medical-Enhancement-App/
+│
+├── app.py                 # Streamlit application
+├── requirements.txt       # Dependencies
+├── models/
+│   └── final_model/       # SavedModel format
+├── utils.py (optional)    # Helper functions
+├── data/                  # Sample images
+└── README.md
+```
+
+---
+
+## Challenges & Learnings
+
+* Handled TensorFlow model compatibility issues (.h5 vs SavedModel)
+* Resolved deployment errors on Streamlit Cloud
+* Fixed OpenCV dependency issues in cloud environments
+* Built complete ML inference pipeline from scratch
+
+---
+
+## Use Cases
+
+* Medical image preprocessing
+* Noise reduction in scans (MRI/CT/X-ray)
+* Educational demo for GAN-based enhancement
+
+---
+
+## Future Improvements
+
+* Train on real MRI/CT datasets
+* Improve model architecture (Pix2Pix / U-Net GAN)
+* Add interactive comparison slider
+* Enhance UI/UX
+
+---
+
+## Author
+
+**Arshav Suman**
+GitHub: https://github.com/arshavsuman20
+
+---
+
+## If you found this useful, consider giving it a star!
