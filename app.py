@@ -12,11 +12,15 @@ st.title("Medical Image Enhancement")
 
 @st.cache_resource
 def load_my_model():
-    model = tf.keras.models.load_model("models/final_model")
+    model = tf.saved_model.load("models/final_model")
     return model
 
 model = load_my_model()
 def process_image(image, model):
+    import numpy as np
+    import cv2
+    import tensorflow as tf
+
     img = np.array(image)
 
     # Ensure 3 channels
@@ -27,10 +31,14 @@ def process_image(image, model):
     img = img / 255.0
 
     # Add batch dimension
-    img = np.expand_dims(img, axis=0)
+    img = np.expand_dims(img, axis=0).astype("float32")
 
-    # 🔥 THIS IS THE KEY FIX
-    output = model(img, training=False)
+    # 🔥 CORRECT WAY FOR SavedModel
+    infer = model.signatures["serving_default"]
+    output = infer(tf.constant(img))
+
+    # Extract tensor
+    output = list(output.values())[0].numpy()
 
     # Remove batch dimension
     output = output[0]
