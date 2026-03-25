@@ -17,38 +17,28 @@ def load_my_model():
 
 model = load_my_model()
 def process_image(image, model):
-    
-
-    # Convert PIL → numpy
     img = np.array(image)
 
-    # Convert to grayscale if needed
-    if len(img.shape) == 3:
-        img = cv2.cvtColor(img, cv2.COLOR_RGB2GRAY)
+    # Ensure 3 channels
+    if len(img.shape) == 2:
+        img = cv2.cvtColor(img, cv2.COLOR_GRAY2RGB)
 
-    # Resize to model input (VERY IMPORTANT)
-    img = cv2.resize(img, (128, 128))   # <-- match your model size
-
-    # Normalize
+    img = cv2.resize(img, (128, 128))
     img = img / 255.0
-
-    # Add channel dimension
-    img = np.expand_dims(img, axis=-1)
 
     # Add batch dimension
     img = np.expand_dims(img, axis=0)
 
-    # Predict
-    output = model.predict(img)
+    # 🔥 THIS IS THE KEY FIX
+    output = model(img, training=False)
 
-    # Remove batch + channel dims
-    output = output[0, :, :, 0]
+    # Remove batch dimension
+    output = output[0]
 
-    # Convert back to 0–255
+    # Convert to image
     output = (output * 255).astype("uint8")
 
     return output
-
 uploaded_file = st.file_uploader("Upload Image", type=["png", "jpg", "jpeg"])
 
 if uploaded_file:
