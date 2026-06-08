@@ -54,19 +54,20 @@ https://medical-enhancement-app-vadvkn9rrneucqypm2azwm.streamlit.app/
 
 ### Homepage
 
-![Homepage](assets/screenshots/homepage.png)
+![Homepage](assets/screenshots/home_page.png)
 
 ---
 
 ### Image Metadata & Processing Information
 
-![Metadata](assets/screenshots/metadata.png)
+![Metadata](assets/screenshots/upload.png)
 
 ---
 
 ### Interactive Before vs After Comparison
 
-![Comparison Slider](assets/screenshots/comparison-slider.png)
+![Comparison Slider](assets/screenshots/slider.png)
+![Downloading](assets/screenshots/download.png)
 
 ---
 
