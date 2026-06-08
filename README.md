@@ -1,13 +1,16 @@
 # Medical Image Enhancement Platform
 
+![Python](https://img.shields.io/badge/Python-3.10+-blue)
+![TensorFlow](https://img.shields.io/badge/TensorFlow-2.x-orange)
+![Streamlit](https://img.shields.io/badge/Streamlit-Deployed-red)
+![License](https://img.shields.io/badge/License-Educational-green)
 A deep learning-powered web application that enhances medical images using a U-Net-based image restoration model. The platform allows users to upload images, compare original and enhanced outputs using an interactive slider, and download the processed result in real time.
 
 ---
 
 ## Live Demo
 
-https://medical-enhancement-app-vadvkn9rrneucqypm2azwm.streamlit.app/
-
+[![Live Demo](https://img.shields.io/badge/Live-Demo-success?style=for-the-badge)](https://medical-enhancement-app-vadvkn9rrneucqypm2azwm.streamlit.app/)
 ---
 
 ## Features
