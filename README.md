@@ -1,6 +1,6 @@
-# Medical Image Enhancement using GAN
+# Medical Image Enhancement Platform
 
-A deep learning-based web application that enhances noisy medical images using a Generative Adversarial Network (GAN). The app allows users to upload an image and get an improved version in real time.
+A deep learning-powered web application for enhancing medical images using a U-Net-based image restoration model. Users can upload medical images, visualize improvements with an interactive comparison slider, and download the enhanced results instantly.
 
 ---
 
@@ -12,43 +12,106 @@ https://medical-enhancement-app-vadvkn9rrneucqypm2azwm.streamlit.app/
 
 ## Features
 
-* Upload medical images (PNG, JPG, JPEG)
-* GAN-based image enhancement
-* Real-time inference using trained model
-* Side-by-side comparison (Original vs Enhanced)
-* Download enhanced image
+### Medical Image Enhancement
+
+* Deep learning-based image enhancement
+* Noise reduction and image refinement
+* Real-time inference using TensorFlow
+
+### Interactive Comparison Slider
+
+* Drag-and-drop comparison between original and enhanced images
+* Side-by-side visual evaluation
+* Professional image review experience
+
+### Smart Upload Pipeline
+
+* Supports PNG, JPG, and JPEG images
+* Handles RGB, RGBA, and grayscale inputs
+* Automatic preprocessing and resizing
+
+### Download Enhanced Results
+
+* Download enhanced images instantly
+* PNG output format
+
+### Image Analytics
+
+* Original image resolution
+* File size information
+* Processing time tracking
 
 ---
 
-## Model Details
+## Technology Stack
 
-* Architecture: GAN / U-Net based generator
-* Input size: 128 × 128 images
-* Preprocessing:
+### Frontend
 
-  * Resize
-  * Normalization (0–1)
-  * Channel adjustment (RGB)
-* Output: Enhanced image with reduced noise
-
----
-
-## Tech Stack
-
-* Python
-* TensorFlow / Keras
-* NumPy
-* OpenCV
 * Streamlit
 
+### Deep Learning
+
+* TensorFlow
+* Keras
+
+### Image Processing
+
+* OpenCV
+* Pillow
+* NumPy
+
+### Visualization
+
+* streamlit-image-comparison
+
 ---
 
-## How to Run Locally
+## Model Architecture
+
+The application uses a U-Net-inspired encoder-decoder architecture trained for medical image enhancement tasks.
+
+### Input
+
+* Image Size: 128 × 128
+* 3-channel RGB input
+
+### Output
+
+* Enhanced image
+* Reduced visual noise
+* Improved structural clarity
+
+---
+
+## Project Workflow
+
+1. User uploads a medical image.
+2. Image is validated and preprocessed.
+3. Deep learning model performs enhancement.
+4. Enhanced image is generated.
+5. Interactive slider displays before/after comparison.
+6. User downloads the enhanced result.
+
+---
+
+## Local Installation
+
+Clone the repository:
 
 ```bash
 git clone https://github.com/arshavsuman20/Medical-Enhancement-App.git
 cd Medical-Enhancement-App
+```
+
+Install dependencies:
+
+```bash
 pip install -r requirements.txt
+```
+
+Run the application:
+
+```bash
 streamlit run app.py
 ```
 
@@ -56,51 +119,69 @@ streamlit run app.py
 
 ## Project Structure
 
-```
+```text
 Medical-Enhancement-App/
 │
-├── app.py                 # Streamlit application
-├── requirements.txt       # Dependencies
+├── app.py
+├── requirements.txt
+├── README.md
+│
 ├── models/
-│   └── final_model/       # SavedModel format
-├── utils.py (optional)    # Helper functions
-├── data/                  # Sample images
-└── README.md
+│   └── final_model/
+│
+├── data/
+│   ├── input/
+│   ├── target/
+│   ├── clean_images/
+│   └── clean_images_processed/
+│
+├── train.py
+├── create_dataset.py
+├── prepare_mri_dataset.py
+├── evaluate.py
+└── convert_model.py
 ```
 
 ---
 
-## Challenges & Learnings
+## Key Highlights
 
-* Handled TensorFlow model compatibility issues (.h5 vs SavedModel)
-* Resolved deployment errors on Streamlit Cloud
-* Fixed OpenCV dependency issues in cloud environments
-* Built complete ML inference pipeline from scratch
-
----
-
-## Use Cases
-
-* Medical image preprocessing
-* Noise reduction in scans (MRI/CT/X-ray)
-* Educational demo for GAN-based enhancement
+* End-to-end ML deployment project
+* Publicly accessible web application
+* Real-time deep learning inference
+* Interactive image comparison slider
+* Medical imaging use case
+* Production-ready deployment on Streamlit Cloud
 
 ---
 
 ## Future Improvements
 
-* Train on real MRI/CT datasets
-* Improve model architecture (Pix2Pix / U-Net GAN)
-* Add interactive comparison slider
-* Enhance UI/UX
+### Version 2
+
+* Enhanced GAN architecture
+* Multi-modal medical image support
+* Higher-resolution inference
+* Batch image processing
+
+### Version 3
+
+* User authentication
+* Cloud storage integration
+* Patient report generation
+* AI-assisted image quality assessment
 
 ---
 
 ## Author
 
-**Arshav Suman**
-GitHub: https://github.com/arshavsuman20
+Arshav Suman
+
+GitHub:
+https://github.com/arshavsuman20
 
 ---
 
-## If you found this useful, consider giving it a star!
+## License
+
+This project is intended for educational and research purposes.
