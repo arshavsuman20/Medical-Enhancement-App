@@ -1,6 +1,6 @@
 # Medical Image Enhancement Platform
 
-A deep learning-powered web application for enhancing medical images using a U-Net-based image restoration model. Users can upload medical images, visualize improvements with an interactive comparison slider, and download the enhanced results instantly.
+A deep learning-powered web application that enhances medical images using a U-Net-based image restoration model. The platform allows users to upload images, compare original and enhanced outputs using an interactive slider, and download the processed result in real time.
 
 ---
 
@@ -12,34 +12,61 @@ https://medical-enhancement-app-vadvkn9rrneucqypm2azwm.streamlit.app/
 
 ## Features
 
-### Medical Image Enhancement
+### Deep Learning-Based Enhancement
 
-* Deep learning-based image enhancement
-* Noise reduction and image refinement
-* Real-time inference using TensorFlow
+* Medical image enhancement using TensorFlow
+* U-Net-inspired architecture
+* Real-time image processing and inference
 
 ### Interactive Comparison Slider
 
-* Drag-and-drop comparison between original and enhanced images
-* Side-by-side visual evaluation
-* Professional image review experience
+* Drag-and-drop before/after comparison
+* Instant visual assessment of enhancement quality
+* User-friendly image review experience
 
-### Smart Upload Pipeline
+### Image Upload Pipeline
 
-* Supports PNG, JPG, and JPEG images
-* Handles RGB, RGBA, and grayscale inputs
-* Automatic preprocessing and resizing
-
-### Download Enhanced Results
-
-* Download enhanced images instantly
-* PNG output format
+* Supports PNG, JPG, and JPEG formats
+* Handles RGB, RGBA, and grayscale images
+* Automatic preprocessing and normalization
 
 ### Image Analytics
 
-* Original image resolution
-* File size information
-* Processing time tracking
+* Displays uploaded filename
+* Shows image resolution
+* Displays file size information
+* Tracks processing time
+
+### Download Support
+
+* Download enhanced images directly
+* PNG output generation
+
+### Deployment
+
+* Publicly accessible web application
+* Hosted on Streamlit Cloud
+* Integrated with GitHub for automated deployment
+
+---
+
+## Application Screenshots
+
+### Homepage
+
+![Homepage](assets/screenshots/homepage.png)
+
+---
+
+### Image Metadata & Processing Information
+
+![Metadata](assets/screenshots/metadata.png)
+
+---
+
+### Interactive Before vs After Comparison
+
+![Comparison Slider](assets/screenshots/comparison-slider.png)
 
 ---
 
@@ -64,16 +91,21 @@ https://medical-enhancement-app-vadvkn9rrneucqypm2azwm.streamlit.app/
 
 * streamlit-image-comparison
 
+### Deployment
+
+* Streamlit Cloud
+* GitHub
+
 ---
 
 ## Model Architecture
 
-The application uses a U-Net-inspired encoder-decoder architecture trained for medical image enhancement tasks.
+The application uses a U-Net-inspired encoder-decoder architecture trained for medical image enhancement.
 
 ### Input
 
 * Image Size: 128 × 128
-* 3-channel RGB input
+* RGB image input
 
 ### Output
 
@@ -83,18 +115,18 @@ The application uses a U-Net-inspired encoder-decoder architecture trained for m
 
 ---
 
-## Project Workflow
+## Workflow
 
-1. User uploads a medical image.
+1. Upload a medical image.
 2. Image is validated and preprocessed.
 3. Deep learning model performs enhancement.
-4. Enhanced image is generated.
-5. Interactive slider displays before/after comparison.
-6. User downloads the enhanced result.
+4. Processing statistics are generated.
+5. Interactive comparison slider displays results.
+6. Enhanced image can be downloaded.
 
 ---
 
-## Local Installation
+## Installation
 
 Clone the repository:
 
@@ -109,7 +141,7 @@ Install dependencies:
 pip install -r requirements.txt
 ```
 
-Run the application:
+Run locally:
 
 ```bash
 streamlit run app.py
@@ -122,6 +154,12 @@ streamlit run app.py
 ```text
 Medical-Enhancement-App/
 │
+├── assets/
+│   └── screenshots/
+│       ├── homepage.png
+│       ├── metadata.png
+│       └── comparison-slider.png
+│
 ├── app.py
 ├── requirements.txt
 ├── README.md
@@ -130,10 +168,6 @@ Medical-Enhancement-App/
 │   └── final_model/
 │
 ├── data/
-│   ├── input/
-│   ├── target/
-│   ├── clean_images/
-│   └── clean_images_processed/
 │
 ├── train.py
 ├── create_dataset.py
@@ -144,44 +178,43 @@ Medical-Enhancement-App/
 
 ---
 
-## Key Highlights
+## Key Achievements
 
-* End-to-end ML deployment project
-* Publicly accessible web application
-* Real-time deep learning inference
-* Interactive image comparison slider
-* Medical imaging use case
-* Production-ready deployment on Streamlit Cloud
+* Developed and deployed a complete end-to-end deep learning application.
+* Implemented real-time medical image enhancement.
+* Integrated an interactive before/after comparison slider.
+* Built a robust image upload and preprocessing pipeline.
+* Added image metadata extraction and processing-time tracking.
+* Deployed the application publicly using Streamlit Cloud.
 
 ---
 
-## Future Improvements
+## Future Enhancements
 
 ### Version 2
 
-* Enhanced GAN architecture
-* Multi-modal medical image support
+* Improved enhancement model
+* Support for additional medical imaging modalities
 * Higher-resolution inference
 * Batch image processing
 
 ### Version 3
 
 * User authentication
-* Cloud storage integration
-* Patient report generation
-* AI-assisted image quality assessment
+* Cloud-based image storage
+* AI-generated enhancement reports
+* Advanced image quality assessment
 
 ---
 
 ## Author
 
-Arshav Suman
+**Arshav Suman**
 
-GitHub:
-https://github.com/arshavsuman20
+GitHub: https://github.com/arshavsuman20
 
 ---
 
 ## License
 
-This project is intended for educational and research purposes.
+This project is intended for educational, research, and portfolio purposes.
