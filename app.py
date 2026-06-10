@@ -138,6 +138,42 @@ The platform will:
 # --------------------------------------------------
 # SIDEBAR
 # --------------------------------------------------
+# --------------------------------------------------
+# SESSION STATE
+# --------------------------------------------------
+
+if "history" not in st.session_state:
+    st.session_state.history = []
+
+st.divider()
+
+st.subheader("Session Analytics")
+
+total_images = len(st.session_state.history)
+
+if total_images > 0:
+
+    avg_impact = sum(
+        item["impact"]
+        for item in st.session_state.history
+    ) / total_images
+
+    st.metric(
+        "Images Processed",
+        total_images
+    )
+
+    st.metric(
+        "Average Impact",
+        f"{avg_impact:.1f}"
+    )
+
+else:
+
+    st.metric(
+        "Images Processed",
+        0
+    )
 
 with st.sidebar:
 
@@ -160,7 +196,22 @@ with st.sidebar:
 
     st.divider()
 
-    st.write("Version: 2.5")
+    st.write("Version: 3.0")
+    
+    st.divider()
+
+    st.subheader("Enhancement History")
+
+    if len(st.session_state.history) == 0:
+        st.caption("No images processed yet")
+
+    else:
+        for item in reversed(st.session_state.history):
+            st.write(
+                f"{item['name']} | "
+                f"{item['scan_type']} | "
+                f"Impact {item['impact']:.1f}"
+            )
 
 # --------------------------------------------------
 # MODEL LOADING
@@ -172,6 +223,7 @@ def load_my_model():
     return model
 
 model = load_my_model()
+
 
 # --------------------------------------------------
 # IMAGE QUALITY ASSESSMENT
@@ -456,6 +508,15 @@ if uploaded_file:
         - start_time
     )
 
+
+    st.session_state.history.append(
+        {
+            "name": uploaded_file.name,
+            "scan_type": scan_type,
+            "impact": impact_score
+        }
+    )
+    
     st.success(
         f"Processing completed in {processing_time:.2f} seconds"
     )
