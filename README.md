@@ -4,7 +4,8 @@
 ![TensorFlow](https://img.shields.io/badge/TensorFlow-2.x-orange)
 ![Streamlit](https://img.shields.io/badge/Streamlit-Deployed-red)
 ![License](https://img.shields.io/badge/License-Educational-green)
-A deep learning-powered web application that enhances medical images using a U-Net-based image restoration model. The platform allows users to upload images, compare original and enhanced outputs using an interactive slider, and download the processed result in real time.
+
+A deep learning-powered web application that enhances noisy medical images using a trained U-Net-based image restoration model deployed with Streamlit. The platform allows users to upload images, compare original and enhanced outputs using an interactive slider, and download the processed result in real time.
 
 ---
 
@@ -64,12 +65,16 @@ A deep learning-powered web application that enhances medical images using a U-N
 ### Image Metadata & Processing Information
 
 ![Metadata](assets/screenshots/upload.png)
+![Metadata](assets/screenshots/upload2.png)
+![Metadata](assets/screenshots/upload3.png)
+![Metadata](assets/screenshots/upload4.png)
 
 ---
 
 ### Interactive Before vs After Comparison
 
 ![Comparison Slider](assets/screenshots/slider.png)
+![Difference Heatmap](assets/screenshots/difference_heatmap.png)
 ![Downloading](assets/screenshots/download.png)
 
 ---
@@ -160,24 +165,21 @@ Medical-Enhancement-App/
 │
 ├── assets/
 │   └── screenshots/
-│       ├── homepage.png
-│       ├── metadata.png
-│       └── comparison-slider.png
-│
-├── app.py
-├── requirements.txt
-├── README.md
-│
+│       ├── home_page.png
+│       ├── upload.png
+│       ├── upload2.png
+│       ├── upload3.png
+│       ├── upload4.png
+│       ├── slider.png
+│       ├── difference_heatmap.png
+│       └── download.png
+│        
 ├── models/
 │   └── final_model/
 │
-├── data/
-│
-├── train.py
-├── create_dataset.py
-├── prepare_mri_dataset.py
-├── evaluate.py
-└── convert_model.py
+├── app.py
+├── requirements.txt
+└── README.md
 ```
 
 ---
@@ -193,21 +195,13 @@ Medical-Enhancement-App/
 
 ---
 
-## Future Enhancements
+### Future Improvements
 
-### Version 2
-
-* Improved enhancement model
-* Support for additional medical imaging modalities
-* Higher-resolution inference
+* Higher-resolution image enhancement
+* Improved model architecture
+* Additional medical imaging modalities
 * Batch image processing
-
-### Version 3
-
-* User authentication
-* Cloud-based image storage
-* AI-generated enhancement reports
-* Advanced image quality assessment
+* PSNR and SSIM quality metrics
 
 ---
 
